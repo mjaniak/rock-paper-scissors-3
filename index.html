@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <h1>Rock, Paper, or Scissors?</h1>
+    <div class="scoreboard">
+        <h2>Scoreboard</h2>
+        <table>
+            <tbody>
+            <tr>
+                <td id="humanScore">0</td>
+                <td id="computerScore">0</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th>You</th>
+                <th>Bot</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <h2 id='result'>Choose</h2> 
+    <button id="rock">Rock</button>
+
+    <button id="paper">Paper</button>
+
+    <button id="scissors">Scissors</button>
+
+
+    <div id="status"></div>
+    <div>
+        <button id="reset">reset</button>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
