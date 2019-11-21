@@ -9,7 +9,10 @@
     "build": "npm run build:sass && npm run build:autoprefixer && npm run test",
     "build:sass": "node-sass --output-style compact -o css sass",
     "build:autoprefixer": "autoprefixer-cli css/style.css",
-    "build-dev:sass": "node-sass --output-style expanded --source-map true -o css sass"
+    "build-dev:sass": "node-sass --output-style expanded --source-map true -o css sass",
+    "watch": "npm-run-all build -p watch:*",
+    "watch:sassprefixer":"onchange -d 100 sass/*.scss -- npm-run-all build-dev:sass build:autoprefixer",
+    "watch:browsersync": "browser-sync start --server --files css/*.css *.html"
   },
   "repository": {
     "type": "git",
