@@ -2,29 +2,25 @@ let humanScore = 0;
 let computerScore = 0;
 let finishScore = 2;
 
-document.getElementById('rock').onclick = playRock;
-document.getElementById('paper').onclick = playPaper;
-document.getElementById('scissors').onclick = playScissors;
+const buttons = document.querySelectorAll('.player-move');
+for (let button of buttons) {
+  const attribute = button.getAttribute('data-move');
+  button.addEventListener('click', () => {
+    playerMove(attribute)
+  });
+}
 
-function playRock() {
-  play("rock");
-  checkResult();
-}
-function playPaper() {
-  play("paper");
-  checkResult();
-}
-function playScissors() {
-  play("scissors");
+function playerMove(move) {
+  play(move);
   checkResult();
 }
 
 function play(humanPlay) {
-  
+
   computerPlay = getComputerPlay();
-  
+
   document.getElementById('status').innerHTML = "<p>You played <strong>" + humanPlay + "</strong>. The computer played <strong>" + computerPlay + "</strong>.</p>";
-  
+
   if(humanPlay == 'rock') {
     if(computerPlay == 'rock') {
       document.getElementById('status').innerHTML += "<p>You tied. :|</p>";
@@ -44,7 +40,7 @@ function play(humanPlay) {
     } else if (computerPlay == 'scissors') {
       document.getElementById('status').innerHTML += "<p>You lost. :(</p>";
       computerScore++;
-    }  
+    }
   } else if (humanPlay == 'scissors') {
     if(computerPlay == 'rock') {
       document.getElementById('status').innerHTML += "<p>You lose. :(</p>";
@@ -54,12 +50,12 @@ function play(humanPlay) {
       humanScore++;
     } else if (computerPlay == 'scissors') {
       document.getElementById('status').innerHTML += "<p>You tied. :|</p>";
-    }  
+    }
   }
-  
+
   document.getElementById('humanScore').innerHTML = humanScore;
   document.getElementById('computerScore').innerHTML = computerScore;
-  
+
 }
 
 function getComputerPlay() {
